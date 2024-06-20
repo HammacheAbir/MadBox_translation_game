@@ -10,7 +10,7 @@ First, clone the repository to your local machine.
 
 ```bash
 git clone <repository-url>
-cd <repository-folder>
+cd MadBox_translation_game
 ```
 
 ### Backend Setup
@@ -39,7 +39,7 @@ cd <repository-folder>
 
 1. Navigate to the frontend folder:
    ```bash
-   cd ../frontend
+   cd ./frontend
    ```
 2. Create an `.env` file and add the content of `.env.example`. Use the following value:
    ```plaintext
@@ -83,7 +83,7 @@ Now, open your browser and go to `http://localhost:3000` to see your application
 
 ## Improvements
 
-Overall, the project is well-suited for the company's business context and meets the job description requirements. However, continuous improvements can be made as needed based on further feedback and evolving requirements.
+Overall, the project is well-suited for the company's business context and meets the job description requirements.
 
 ## Development Time
 

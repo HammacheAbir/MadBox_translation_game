@@ -8,7 +8,7 @@ export const useHints = (data:any) =>{
         if(showHint1){
             return {
                 variant1:"outlined",
-                text1:`Your word contains ${data.en.length} letters`
+                text1:`Your word contains ${data?.en?.length} letters`
             } 
         }
         return {
@@ -21,7 +21,7 @@ export const useHints = (data:any) =>{
         if(showHint2){
             return {
                 variant2:"outlined",
-                text2:`Your word starts with letter "${data.en[0]}"`
+                text2:`Your word starts with letter "${data?.en[0]}"`
             } 
         }
         return {

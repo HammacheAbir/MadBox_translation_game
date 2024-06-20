@@ -1,28 +1,27 @@
-const axios = require('axios');
-const FormData = require('form-data');
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import FormData from 'form-data';
 
-
-export const translate = async(text)=>{
+export const translate = async(text:string):Promise<string>=>{
     try {
-
-        const data = new FormData();
+        const data:FormData = new FormData();
         data.append('source_language', 'fr');
         data.append('target_language', 'en');
         data.append('text', text);
 
-        const options = {
-        method: 'POST',
-        url: 'https://text-translator2.p.rapidapi.com/translate',
-        headers: {
-            'x-rapidapi-key': '1e422715abmshb1845dec85e983ep15ba6ejsnfddf71f17ca4',
-            'x-rapidapi-host': 'text-translator2.p.rapidapi.com',
-            ...data.getHeaders(),
-        },
-        data: data
+        const options: AxiosRequestConfig = {
+            method: 'POST',
+            url: process.env.RAPID_API_URL,
+            headers: {
+                'x-rapidapi-key': process.env.RAPID_API_KEY,
+                'x-rapidapi-host': process.env.RAPID_API_HOST,
+                ...data.getHeaders(),
+            },
+            data: data
         };
-        const response = await axios.request(options);
+        const response: AxiosResponse = await axios.request(options);
+        console.log(response.data.data.translatedText)
         return response.data.data.translatedText
-    } catch (error) {
+    } catch (error:any) {
         console.error(error);
     }
 }

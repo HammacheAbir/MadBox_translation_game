@@ -1,10 +1,14 @@
-const fs = require('fs');
-const readline = require('readline');
-const path = require('path');
+import fs from'fs';
+import readline from 'readline';
+import path from 'path';
 
-export const uploadFile = async()=>{
+type fileWord  = {
+  fr:string
+}
+
+export const uploadFile = async():Promise<fileWord[]>=>{
     try {
-        const coolPath = path.join(__dirname, 'verbs.txt');
+        const coolPath:string = path.join(__dirname, 'verbs.txt');
 
         const fileStream = fs.createReadStream(coolPath);
         const rl = readline.createInterface({
@@ -12,7 +16,7 @@ export const uploadFile = async()=>{
           crlfDelay: Infinity
         });
     
-        const words = [];
+        const words:fileWord[] = [];
         for await (const line of rl) {
           words.push({ fr: line });
         }

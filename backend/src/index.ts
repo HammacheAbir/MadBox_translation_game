@@ -1,27 +1,28 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-import express from "express"
+import express,{Express} from "express"
 import { connectToMongoDB } from "./db"
-import {router as wordRouter} from "./routes/word.route"
-import {router as playerRouter} from "./routes/player.route"
+import { router as wordRouter } from "./routes/word.route"
+import { router as playerRouter } from "./routes/player.route"
+import cors from 'cors';
 
-const app = express()
+const app:Express = express()
 
+app.use(cors());
 app.use(express.json())
 
 app.use("/api/words", wordRouter)
 
 app.use("/api/players", playerRouter)
 
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
     res.send("Hello")
 })
 
-connectToMongoDB().then(()=>{
-    app.listen(3030,()=>{
-        console.log("listening to server on port 3030")
+connectToMongoDB().then(() => {
+    app.listen(5000, () => {
+        console.log("listening to server on port 5000")
     })
 })
-
-
 

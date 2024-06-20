@@ -1,7 +1,7 @@
 import {Word} from "../db/models/word.model"
 
 
-export const getWordByOrder = async(order) =>{
+export const getWordByOrder = async(order:number):Promise<any> =>{
     try {
         return await Word.findOne().skip(order);
     } catch (error) {
@@ -10,7 +10,7 @@ export const getWordByOrder = async(order) =>{
     }
 }
 
-export const getCount = async() =>{
+export const getCount = async():Promise<number> =>{
     try {
         return await Word.countDocuments();
     } catch (error) {
@@ -19,7 +19,7 @@ export const getCount = async() =>{
     }
 }
 
-export const insertManyWords = async (words)=>{
+export const insertManyWords = async (words:any[]):Promise<any>=>{
     try {
         return await Word.insertMany(words);
     } catch (error) {

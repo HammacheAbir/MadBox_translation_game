@@ -60,7 +60,7 @@ const  LeaderBoard =( {open, setOpen}:{open:boolean,setOpen:any}) => {
         <DialogContent dividers>
         {(isLoading) ?
             <CircularProgress />
-            :status=="success" &&
+            :status==="success" &&
                 <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                     {players.map((player:{name:string,score:number},key:number)=><>
                         <ListItem sx={{width:"500px"}} key={key} alignItems="flex-start">

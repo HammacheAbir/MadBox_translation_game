@@ -1,8 +1,8 @@
-import express from "express"
+import express, { Router } from "express"
 import { getRandomWord,populateWordsList } from "../controllers/word.controller"
-const multer = require('multer');
+import multer from 'multer';
 
-export const router = express.Router() 
+export const router:Router = express.Router() 
 
 const upload = multer({ dest: 'uploads/' });
 

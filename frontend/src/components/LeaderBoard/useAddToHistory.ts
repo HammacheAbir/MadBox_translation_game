@@ -1,16 +1,18 @@
+import axios from "axios";
 import { useQuery } from "react-query"
 
 export const useAddToHistory = (name:string,score:number)=>{
-    const { isLoading, status }:any = useQuery(['addToLeadersBoard',name,score],  () =>
+    const { isLoading, status }:any = useQuery(['addToLeadersBoard',name,score],  async() =>
     {
         if(score>20){
-          // add to players
-          console.log("adding to history")
+          await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/players`,{name,score});
 
           setTimeout(()=>{
             window.location.reload();
           },2000)
         }
+    },{
+      staleTime: 1000 * 60 * 60
     }
   )
 

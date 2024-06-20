@@ -9,7 +9,7 @@
 First, clone the repository to your local machine.
 
 ```bash
-git clone [<repository-url>](https://github.com/HammacheAbir/MadBox_translation_game.git)
+git clone https://github.com/HammacheAbir/MadBox_translation_game.git
 cd MadBox_translation_game
 ```
 
